@@ -1,0 +1,41 @@
+# Keep this line in this example file to allow parsing it properly
+{}
+
+#
+# Custom file names:
+#   hotkeys.UID.txt (A UIDm the author or any other custom string)
+#
+# File format:
+# {
+#	'UID': {
+#		'HotKey': ['method', 'optional description'],
+#		'HotKey_2': ['method', 'optional description'],
+#	},
+# }
+#
+# UID should be a unique ID for each file. Also the author name works fine as long as only one configuration file is provided.
+# '1234',  'author:subject' or fnv32('Author:Subject') might also be used, just make sure no one else uses the same ID.
+#
+# HotKey strings are case-sensitive:
+#   Shift+  - optional string
+#   Ctrl+   - optional string
+#   Alt+    - optional string
+#   ?       - Required character in the range [0-9A-Z]. [a-z,.;:+-] etc. and Numpad or Cursor keys are not supported
+#
+# Reserved Hotkeys which can't or shouldn't be registered:
+#   Shift+P    - En-/Disable the TS4 vanilla hotkeys [(Shift+)(Ctrl+)(Alt+)0-9a-z]. Mouse input is not affected.
+#   p123       - Pause game or speed
+#   wasd       - Move view
+#   zx         - Zoom
+#   cv         - Screenshot / Video
+#   Ctrl+U     - Restore UI
+#   ngijlryo   - Show information
+#   m          - Map Mode
+#   Shift+Ctrl+C - Cheat Console
+#   hbekrgtlu  - Various Build Mode hotkeys
+#   Ctrl+fzy   - Various Build Mode hotkeys
+#
+# Method is the full qualified class name to call the method when the hotkey is pressed.
+#   The reserved method name 'remove' can be used to un-register hotkeys.
+# The description is optional, please use it to provide some information.
+#

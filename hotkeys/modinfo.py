@@ -28,10 +28,12 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.1.0'
+        return '0.1.1'
 
 
 '''
+v0.1.1
+    Enable 'Win' key support
 v0.1.0
     Removed all binding code
 v0.0.26

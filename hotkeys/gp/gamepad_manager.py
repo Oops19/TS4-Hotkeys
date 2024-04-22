@@ -8,19 +8,24 @@
 #
 
 
-from hk_move.translate_keys import TranslateKeys
 from hotkeys.gp.enums.gamepad_constants import GamepadConstants
 from hotkeys.t.gamepad_thread import GamepadThread
 from hotkeys.modinfo import ModInfo
-
 from ts4lib.utils.singleton import Singleton
-
-# from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
-# log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadManager')
-from ts4lib.utils.un_common_log import UnCommonLog
-log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadManager', custom_file_path=None)
+try:
+    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadManager')
+except:
+    from ts4lib.utils.un_common_log import UnCommonLog
+    log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadManager', custom_file_path=None)
 log.enable()
 
+try:
+    from hk_move.translate_keys import TranslateKeys
+    from hk_move.move import Move
+    hk_move_found = True
+except:
+    hk_move_found = False
 
 class GamepadManager(metaclass=Singleton):
     _gamepad_thread = None
@@ -28,6 +33,10 @@ class GamepadManager(metaclass=Singleton):
     translate_keys = None
 
     def __init__(self):
+        if hk_move_found is False:
+            log.warn(f"HotkeyBindings not found. >> Gamepad support disabled!")
+            return
+
         # Start the Keyboard thread
         GamepadManager._gamepad_thread = GamepadThread(GamepadManager._gamepad_callback)
         GamepadManager._gamepad_thread.start_thread()
@@ -39,7 +48,6 @@ class GamepadManager(metaclass=Singleton):
     def _gamepad_callback(event, key_down: bool = None):
         try:
             log.debug(f"{event} {key_down}")
-            from hk_move.move import Move
             if key_down is None:
                 stick, _x, _y, _z = event.split(' ', 3)
                 if stick == 'stick_l':

@@ -70,9 +70,10 @@ class HotkeyReader(object, metaclass=Singleton):
                     shift = True if 'Shift+' in hotkey else False
                     ctrl = True if 'Ctrl+' in hotkey else False
                     alt = True if 'Alt+' in hotkey else False
+                    win = True if 'Win+' in hotkey else False
                     key = hotkey[-1:]
                     key_code = ord(key)
-                    kd = KeyDefinition(key_code, shift=shift, ctrl=ctrl, alt=alt)
+                    kd = KeyDefinition(key_code, shift=shift, ctrl=ctrl, alt=alt, win=win)
                     if CommonKey.KEY_0 <= key_code <= CommonKey.KEY_Z:
                         hdl: List[str, str, bool, int] = hotkey_definition
                         callback_parameter = hdl.pop(0) if hdl else ''

@@ -2,10 +2,19 @@
 
 This mod is for Windows only and does not work on any other systems.
 
+## Issues
+There are some issues to detect the focus properly. In such cases the keys will not work. Switch to a different window/program and back to TS$ to fix this.
+
+The cheat console and text input in game/CAS lag. That's because the input can't be processed fast enough. Get a much faster processor to fix this.
+
+The gamepad is queried in an active thread 30 times a second. This adds some overhead to TS4. Unplug or disable the gamepad to avoid this in case you don't use it.
+
+
 ## Hotkeys
 This mod allows to define custom hotkeys for the keyboard keys [A-Z0-9].
 It supports Shift, Ctrl, Alt and/or Win key modifiers.
 The mod itself doesn't come with any pre-defined hotkey definitions.
+
 
 ## Gamepad
 The mod supports using the gamepad to move sims around.
@@ -19,14 +28,19 @@ Custom actions can't be bound to the gamepad keys, except of the paddle key whic
 * The ABXY, menu and play keys are not yet used.
 * The game key can't be used.
 
+### Enable / Disable permanently
+To disable the gamepad permanently copy the file `mod_data/hotkeys/hotkeys.txt` to `mod_data/hotkeys/hotkeys.override.txt` and change `'Gamepad': True,` to `'Gamepad': False,`.
+
+In the copied file the gamepad ID can also be changed permanently.
+
 ### Cheats
 * o19.hk.gp.id ID - Select the controller ID (0-3) to be used. Defaults to the fist controller '0'.
 * o19.hk.gp.verbose - Write a verbose log. This will cause some lag while using the controller.
 
+## Pie Menus
 ### Moving Objects
 There is a simple cheat interaction called 'Move'. Running it on the floor allows to move the `active` sim (default).
-Clicking on a object/(not controlled) sim allows to move and/or rotate the object/sim.
-
+Clicking on a object/(or random) sim allows to move and/or rotate the object/sim.
 
 
 # Addendum

@@ -15,11 +15,9 @@ from ts4lib.utils.singleton import Singleton
 
 try:
     from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
-
     log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadManager')
 except:
     from ts4lib.utils.un_common_log import UnCommonLog
-
     log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadManager', custom_file_path=None)
 log.enable()
 

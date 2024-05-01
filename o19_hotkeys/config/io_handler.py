@@ -8,8 +8,8 @@ import ast
 import os
 from typing import Dict, List, Any
 
-from hotkeys.config.helper import ConfigHelper
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.config.helper import ConfigHelper
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLog
 
 

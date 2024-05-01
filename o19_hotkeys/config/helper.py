@@ -8,7 +8,7 @@ import os
 import re
 from typing import Dict, List
 
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from ts4lib.libraries.file_utils import FileUtils
 from ts4lib.libraries.ts4folders import TS4Folders
 from ts4lib.utils.un_common_log import UnCommonLog

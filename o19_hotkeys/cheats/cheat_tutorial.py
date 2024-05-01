@@ -6,9 +6,9 @@
 
 from typing import Dict
 
-from hotkeys.hk.hotkey_store import HotkeyStore
-from hotkeys.hk.key_definition import KeyDefinition
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.hk.hotkey_store import HotkeyStore
+from o19_hotkeys.hk.key_definition import KeyDefinition
+from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 from sims4communitylib.events.interval.common_interval_event_service import CommonIntervalEventRegistry
 from sims4communitylib.services.commands.common_console_command import CommonConsoleCommand

@@ -3,21 +3,19 @@
 This mod is for Windows only and does not work on any other systems.
 
 ## Issues
-There are some issues to detect the focus properly. In such cases the keys will not work. Switch to a different window/program and back to TS$ to fix this.
+There are some issues to detect the focus properly. In such cases the keys will not work. Switch to a different window/program and back to TS4 to fix this.
 
-The cheat console and text input in game/CAS lag. That's because the input can't be processed fast enough. Get a much faster processor to fix this.
+The cheat console and text input in game/CAS do lag. That's because the input can't be processed fast enough due to the limited Python threading capabilities. Get a much faster processor to fix this.
 
-The gamepad is queried in an active thread 30 times a second. This adds some overhead to TS4. Unplug or disable the gamepad to avoid this in case you don't use it.
-
+The gamepad is queried in an active thread around 25 times a second. This adds some overhead to TS4. Unplug or disable the gamepad to avoid this in case you don't use it.
 
 ## Hotkeys
 This mod allows to define custom hotkeys for the keyboard keys [A-Z0-9].
 It supports Shift, Ctrl, Alt and/or Win key modifiers.
-The mod itself doesn't come with any pre-defined hotkey definitions.
-
+The mod itself doesn't come with any pre-defined hotkey bindings.
 
 ## Gamepad
-The mod supports using the gamepad to move sims around.
+The mod supports using the gamepad to move sims around in case a 3rd-party mod to move objects/sims is available.
 The support to route sims to a location is very basic and may throw exceptions.
 Custom actions can't be bound to the gamepad keys, except of the paddle key which always act as normal keys. 
 * The left stick can be used to rotate the sim.
@@ -28,10 +26,15 @@ Custom actions can't be bound to the gamepad keys, except of the paddle key whic
 * The ABXY, menu and play keys are not yet used.
 * The game key can't be used.
 
-### Enable / Disable permanently
-To disable the gamepad permanently copy the file `mod_data/hotkeys/hotkeys.txt` to `mod_data/hotkeys/hotkeys.override.txt` and change `'Gamepad': True,` to `'Gamepad': False,`.
+### Configuration
+The default configuration file is placed in `mod_data/hotkeys/hotkeys.txt` and should not be edited as it will be overridden when updating.
+To modify the default values copy it to `mod_data/hotkeys/hotkeys.override.txt` and change values in the new file.
+#### Enable / Disable permanently
+* To disable the hotkeys permanently change `'Hotkeys': True,` to `'Hotkeys': False,`.
+* To disable the gamepad permanently change `'Gamepad': True,` to `'Gamepad': False,`.
+* To change the gampepad ID modify `'GamepadId': 0,` to values 1, 2 or 3.
 
-In the copied file the gamepad ID can also be changed permanently.
+* Other settings should not be modified.
 
 ### Cheats
 * o19.hk.gp.id ID - Select the controller ID (0-3) to be used. Defaults to the fist controller '0'.
@@ -39,8 +42,40 @@ In the copied file the gamepad ID can also be changed permanently.
 
 ## Pie Menus
 ### Moving Objects
-There is a simple cheat interaction called 'Move'. Running it on the floor allows to move the `active` sim (default).
-Clicking on a object/(or random) sim allows to move and/or rotate the object/sim.
+There is a simple cheat interaction called 'Move'.
+* Clicking on a object/(or random) sim allows to move and/or rotate the object/sim. The active sim will be ignored.
+* Running it on the floor allows to move the `active` sim (default) again.
+
+
+# Creation of Custom Hotkey Bindings
+Replace directory, author, mod etc. (often mention in `{}` below) with real / useful values. The values and names used when creating a new mod should never contain `{` or `}`.
+
+To add custom hotkeys to the game create a file `The Sims 4/mod_data/hotkeys/hotkeys.{author-name}.{mod-name}.txt` and add hotkey definitions to it. E.g.:
+```json
+{
+  'author-name.mod-name': {
+    'A': ['{directory}.{file-name}..{ClassName}.{function_name}', 'Description: A miracle happens.', ],
+    'Shift+Ctrl+Alt+Win+A': ['{directory}.{file-name}.{ClassName}.{function_name2} {all parameters}', 'Description: Another miracle happens.', ],
+  }
+}
+```
+In case you start TS4 now `Hotkeys` will complain about the missing functions.
+
+Create a mod with the structure from above. It should have a file `{directory}/{file-name}.py` with the following structure:
+```python
+class {ClassName}:
+    @staticmethod
+    def {function_name}():
+        pass  # code for 'A miracle happens.'
+    @staticmethod
+    def {function_name2}(*args):
+        pass  # code for 'Another miracle happens.'
+```
+
+Compile the file to `{directory}/{file-name}.pyc` and add it to a ZIP file with the .ts4script instead of the .zip file suffix.
+Add the `{mod-name}.ts4script` file to the mods folder.
+
+Starting TS4 will read the `hotkeys.{author-name}.{mod-name}.txt`, locate the methods in the mod and call it whenever one fo the keys is pressed.
 
 
 # Addendum

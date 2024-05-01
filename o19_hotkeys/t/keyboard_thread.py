@@ -12,9 +12,9 @@ import threading
 import time
 from typing import Callable
 
-from hotkeys.t.keyboard_hook import KeyboardHook
+from o19_hotkeys.t.keyboard_hook import KeyboardHook
 
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'KeyboardThread')

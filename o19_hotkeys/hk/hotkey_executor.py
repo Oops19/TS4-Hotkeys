@@ -11,10 +11,10 @@
 import os
 from queue import Queue, Empty
 
-from hk_move.translate_keys import TranslateKeys
-from hotkeys.hk.hotkey_manager import HotkeyManager
-from hotkeys.hk.hotkey_reader import HotkeyReader
-from hotkeys.modinfo import ModInfo
+from hk_move2.translate_keys import TranslateKeys
+from o19_hotkeys.hk.hotkey_manager import HotkeyManager
+from o19_hotkeys.hk.hotkey_reader import HotkeyReader
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.events.event_handling.common_event_registry import CommonEventRegistry
 from sims4communitylib.events.interval.common_interval_event_service import CommonIntervalEventRegistry
 from sims4communitylib.events.zone_spin.events.zone_late_load import S4CLZoneLateLoadEvent

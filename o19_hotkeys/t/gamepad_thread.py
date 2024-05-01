@@ -13,10 +13,10 @@ import time
 from typing import Callable
 
 
-from hotkeys.t.gamepad_hook import GamepadHook
-from hotkeys.gp.gamepad_state import GamepadState
+from o19_hotkeys.t.gamepad_hook import GamepadHook
+from o19_hotkeys.gp.gamepad_state import GamepadState
 
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 
 # from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog

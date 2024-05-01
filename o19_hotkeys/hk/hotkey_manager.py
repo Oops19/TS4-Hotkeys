@@ -10,16 +10,16 @@
 
 from queue import Queue, Full
 
-from hotkeys.t.focus_thread import FocusThread
-from hotkeys.hk.hotkey_store import HotkeyStore
-from hotkeys.hk.key_definition import KeyDefinition
-from hotkeys.t.keyboard_hook import KeyboardHook
-from hotkeys.t.keyboard_thread import KeyboardThread
+from o19_hotkeys.t.focus_thread import FocusThread
+from o19_hotkeys.hk.hotkey_store import HotkeyStore
+from o19_hotkeys.hk.key_definition import KeyDefinition
+from o19_hotkeys.t.keyboard_hook import KeyboardHook
+from o19_hotkeys.t.keyboard_thread import KeyboardThread
 
 from ts4lib.utils.singleton import Singleton
 from sims4communitylib.enums.common_key import CommonKey
 
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
 from sims4communitylib.utils.common_time_utils import CommonTimeUtils
 

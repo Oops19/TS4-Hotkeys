@@ -12,14 +12,14 @@ import importlib
 import random
 from typing import Dict, Union, List
 
-from hotkeys.config.config_reader import ConfigReader
-from hotkeys.gp.gamepad_manager import GamepadManager
-from hotkeys.gp.gamepad_state import GamepadState
-from hotkeys.hk.hotkey_store import HotkeyStore
-from hotkeys.hk.key_definition import KeyDefinition
+from o19_hotkeys.config.config_reader import ConfigReader
+from o19_hotkeys.gp.gamepad_manager import GamepadManager
+from o19_hotkeys.gp.gamepad_state import GamepadState
+from o19_hotkeys.hk.hotkey_store import HotkeyStore
+from o19_hotkeys.hk.key_definition import KeyDefinition
 from sims4communitylib.enums.common_key import CommonKey
 from ts4lib.utils.singleton import Singleton
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'HotkeyReader')

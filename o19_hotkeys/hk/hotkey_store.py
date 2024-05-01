@@ -10,7 +10,7 @@
 
 from typing import Dict, Set
 
-from hotkeys.hk.key_definition import KeyDefinition
+from o19_hotkeys.hk.key_definition import KeyDefinition
 from ts4lib.utils.singleton import Singleton
 
 

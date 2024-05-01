@@ -4,8 +4,8 @@
 #
 
 
-from hk_move.move import Move
-from hotkeys.modinfo import ModInfo
+from hk_move2.move import Move
+from o19_hotkeys.modinfo import ModInfo
 
 from typing import Any
 

@@ -4,7 +4,7 @@
 #
 
 
-from hotkeys.gp.enums.gamepad_constants import GamepadConstants, XINPUT_STATE
+from o19_hotkeys.gp.enums.gamepad_constants import GamepadConstants, XINPUT_STATE
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 from ts4lib.utils.singleton import Singleton
 

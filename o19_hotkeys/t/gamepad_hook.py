@@ -10,14 +10,14 @@
 
 import time
 
-from hotkeys.gp.enums.gamepad_constants import GamepadConstants
-from hotkeys.gp.gamepad_init import GamepadInit
+from o19_hotkeys.gp.enums.gamepad_constants import GamepadConstants
+from o19_hotkeys.gp.gamepad_init import GamepadInit
 
 
 from typing import Callable
 
-from hotkeys.gp.gamepad_state import GamepadState
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.gp.gamepad_state import GamepadState
+from o19_hotkeys.modinfo import ModInfo
 
 # from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
 # log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadHook')

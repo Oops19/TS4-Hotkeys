@@ -13,7 +13,7 @@ from typing import Callable
 from ts4lib.ts4l_ctypes import c_ulong, byref, get_last_error, windll, wintypes, WINFUNCTYPE, WinError, GetLastError
 from ts4lib.ts4l_ctypes.wintypes import MSG
 
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'FocusHook')

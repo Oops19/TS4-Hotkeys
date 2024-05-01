@@ -28,10 +28,14 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.1.1'
+        return '0.1.3'
 
 
 '''
+v0.1.3
+    Rename hotkeys to o19_hotkeys to avoid collision with previous versions.
+v0.1.2
+    Updated README, no code change
 v0.1.1
     Enable 'Win' key support
 v0.1.0

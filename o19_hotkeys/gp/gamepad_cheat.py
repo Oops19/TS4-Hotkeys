@@ -4,9 +4,9 @@
 #
 
 
-from hotkeys.gp.gamepad_manager import GamepadManager
-from hotkeys.gp.gamepad_state import GamepadState
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.gp.gamepad_manager import GamepadManager
+from o19_hotkeys.gp.gamepad_state import GamepadState
+from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.services.commands.common_console_command import CommonConsoleCommand, CommonConsoleCommandArgument
 from sims4communitylib.services.commands.common_console_command_output import CommonConsoleCommandOutput
 

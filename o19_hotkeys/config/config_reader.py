@@ -6,8 +6,8 @@
 
 from typing import Dict
 
-from hotkeys.config.io_handler import ConfigIOHandler
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.config.io_handler import ConfigIOHandler
+from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.singleton import Singleton
 from ts4lib.libraries.ts4folders import TS4Folders
 from ts4lib.utils.un_common_log import UnCommonLog

@@ -8,24 +8,29 @@
 #
 
 
-from hotkeys.gp.enums.gamepad_constants import GamepadConstants
-from hotkeys.t.gamepad_thread import GamepadThread
-from hotkeys.modinfo import ModInfo
+from o19_hotkeys.gp.enums.gamepad_constants import GamepadConstants
+from o19_hotkeys.t.gamepad_thread import GamepadThread
+from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.singleton import Singleton
+
 try:
     from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+
     log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadManager')
 except:
     from ts4lib.utils.un_common_log import UnCommonLog
+
     log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadManager', custom_file_path=None)
 log.enable()
 
 try:
-    from hk_move.translate_keys import TranslateKeys
-    from hk_move.move import Move
+    from hk_move2.translate_keys import TranslateKeys
+    from hk_move2.move import Move
+
     hk_move_found = True
 except:
     hk_move_found = False
+
 
 class GamepadManager(metaclass=Singleton):
     _gamepad_thread = None
@@ -90,6 +95,7 @@ class GamepadManager(metaclass=Singleton):
 if __name__ == '__main__':
     import os
     import time
+
     os.environ["log_to_stdout"] = "1"
     gm = GamepadManager()
     time.sleep(120)

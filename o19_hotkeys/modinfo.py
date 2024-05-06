@@ -28,10 +28,13 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.1.3'
+        return '0.1.4'
 
 
 '''
+v0.1.4
+    Add a sad log message for Mac (non 'nt') as this mod doesn't work for Mac users.
+    Load Hotkeys with S4CLZoneLateLoadEvent and not during startup.
 v0.1.3
     Rename hotkeys to o19_hotkeys to avoid collision with previous versions.
 v0.1.2

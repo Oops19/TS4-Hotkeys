@@ -38,6 +38,7 @@ class HotkeyExecutor(object, metaclass=Singleton):
 
     def __init__(self):
         if not os.name == "nt":
+            log.debug(f"Sorry! 'Hotkeys' is not supported on this platform. Detected OS '{os.name}' is not 'nt'. ")
             return
         try:
             _hotkey_reader = HotkeyReader()
@@ -83,7 +84,7 @@ class HotkeyExecutor(object, metaclass=Singleton):
                 HotkeyExecutor._hk_manager.read_queue = False
 
 
-if True is True:
+if True is False:
     HotkeyExecutor()
 else:
     # noinspection PyUnusedLocal

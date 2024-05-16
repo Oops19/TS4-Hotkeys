@@ -24,7 +24,6 @@ log.enable()
 try:
     from hk_move2.translate_keys import TranslateKeys
     from hk_move2.move import Move
-
     hk_move_found = True
 except:
     hk_move_found = False

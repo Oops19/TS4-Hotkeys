@@ -15,6 +15,7 @@ from o19_hotkeys.hk.hotkey_store import HotkeyStore
 from o19_hotkeys.hk.key_definition import KeyDefinition
 from o19_hotkeys.t.keyboard_hook import KeyboardHook
 from o19_hotkeys.t.keyboard_thread import KeyboardThread
+from o19_hotkeys.t.zone_hook import ZoneHook
 
 from ts4lib.utils.singleton import Singleton
 from sims4communitylib.enums.common_key import CommonKey
@@ -183,3 +184,6 @@ class HotkeyManager(object, metaclass=Singleton):
         # Start the Focus thread
         HotkeyManager._focus_thread = FocusThread(KeyboardHook.active)
         HotkeyManager._focus_thread.start_thread()
+
+        # Initialize the Zone hook
+        ZoneHook(KeyboardHook.zone_loaded)

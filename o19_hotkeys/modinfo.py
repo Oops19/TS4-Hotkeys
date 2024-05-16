@@ -28,10 +28,14 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.1.4'
+        return '0.2.1'
 
 
 '''
+v0.2.1
+    Add check for None callback
+v0.2.0
+    Add a zone hook to disable the keyboard hook while in CAS or build mode.
 v0.1.4
     Add a sad log message for Mac (non 'nt') as this mod doesn't work for Mac users.
     Load Hotkeys with S4CLZoneLateLoadEvent and not during startup.

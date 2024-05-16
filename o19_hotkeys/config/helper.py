@@ -11,12 +11,13 @@ from typing import Dict, List
 from o19_hotkeys.modinfo import ModInfo
 from ts4lib.libraries.file_utils import FileUtils
 from ts4lib.libraries.ts4folders import TS4Folders
-from ts4lib.utils.un_common_log import UnCommonLog
 
-
-mod_name = ModInfo.get_identity().name
-log: UnCommonLog = UnCommonLog(f"{ModInfo.get_identity().name}", ModInfo.get_identity().name, custom_file_path=None)
-
+try:
+    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'ConfigHelper')
+except:
+    from ts4lib.utils.un_common_log import UnCommonLog
+    log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'ConfigHelper', custom_file_path=None)
 
 class ConfigHelper:
     def __init__(self):

@@ -3,11 +3,20 @@
 This mod is for Windows only and does not work on any other systems.
 
 ## Issues
-There are some issues to detect the focus properly. In such cases the keys will not work. Switch to a different window/program and back to TS4 to fix this.
+The hotkeys work only while a zone is loaded and the game has the focus.
+It is now disabled in CAS but still active in the build/buy menu.
+The cheat console and text input in game do lag.
+That's because the input can't be processed fast enough due to the limited Python threading capabilities.
+Get a much faster processor to fix this.
 
-The cheat console and text input in game/CAS do lag. That's because the input can't be processed fast enough due to the limited Python threading capabilities. Get a much faster processor to fix this.
+The gamepad is queried in an active thread around 25 times a second.
+This adds some overhead to TS4.
+Unplug or disable the gamepad to avoid this in case you don't use it.
 
-The gamepad is queried in an active thread around 25 times a second. This adds some overhead to TS4. Unplug or disable the gamepad to avoid this in case you don't use it.
+Should be solved:
+~~There are some issues to detect the focus properly.
+In such cases the keys will not work.
+Switch to a different window/program and back to TS4 to fix this.~~
 
 ## Hotkeys
 This mod allows to define custom hotkeys for the keyboard keys [A-Z0-9].

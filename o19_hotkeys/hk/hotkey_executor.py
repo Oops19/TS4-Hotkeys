@@ -11,7 +11,10 @@
 import os
 from queue import Queue, Empty
 
-from hk_move2.translate_keys import TranslateKeys
+try:
+    from hk_move2.translate_keys import TranslateKeys
+except:
+    pass
 from o19_hotkeys.hk.hotkey_manager import HotkeyManager
 from o19_hotkeys.hk.hotkey_reader import HotkeyReader
 from o19_hotkeys.modinfo import ModInfo

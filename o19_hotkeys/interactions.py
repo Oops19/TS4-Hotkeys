@@ -4,7 +4,10 @@
 #
 
 
-from hk_move2.move import Move
+try:
+    from hk_move2.move import Move
+except:
+    pass
 from o19_hotkeys.modinfo import ModInfo
 
 from typing import Any
@@ -32,10 +35,13 @@ class InteractionsHotkeys(CommonImmediateSuperInteraction):
 
     def on_started(self, interaction_sim: Sim, interaction_target: Any) -> bool:
         log.debug(f"on_started({interaction_sim}, {interaction_target}, )")
-        if isinstance(interaction_target, TerrainPoint):
-            Move().item = None
-            log.debug(f"New move object: None >> The Active Sim while be moved / rotated.")
-        else:
-            Move().item = interaction_target
-            log.debug(f"New move object: {interaction_target}")
-        return CommonExecutionResult.TRUE
+        try:
+            if isinstance(interaction_target, TerrainPoint):
+                Move().item = None
+                log.debug(f"New move object: None >> The Active Sim while be moved / rotated.")
+            else:
+                Move().item = interaction_target
+                log.debug(f"New move object: {interaction_target}")
+            return CommonExecutionResult.TRUE
+        except Exception as e:
+            log.warn(f"Error {e}")

@@ -28,7 +28,9 @@ class FocusHook:
     current_process_id = -1
     hook = 0
 
-    def __init__(self, callback: Callable):
+    def __init__(self, callback: Callable = None):
+        if callback is None:
+            return
         FocusHook.callback = callback
         FocusHook.current_process_id = windll.kernel32.GetCurrentProcessId()
         # Call self to detect application focus
@@ -37,6 +39,9 @@ class FocusHook:
     # noinspection PyPep8Naming,PyUnusedLocal
     @staticmethod
     def _focus_handler(hWinEventHook, event, hwnd, idObject, idChild, dwEventThread, dwmsEventTime):
+        if FocusHook.callback is None:
+            return
+
         # Get the handle of the foreground window
         foreground_window = windll.user32.GetForegroundWindow()
 

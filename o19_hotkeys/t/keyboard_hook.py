@@ -37,6 +37,7 @@ class KeyboardHook:
 
     callback = None
     is_active = False  # Require at least one focus change event before setting this to True
+    is_loaded = True  # Keep True to avoid initialization issues.
     hook = None
 
     # noinspection SpellCheckingInspection
@@ -62,14 +63,25 @@ class KeyboardHook:
     @staticmethod
     def active(is_active: bool):
         # TS4 process is running in foreground
+        if KeyboardHook.is_active == is_active:
+            return
+        log.debug(f"Focus: {is_active}")
         KeyboardHook.is_active = is_active
-        if is_active is True:
-            KeyboardHook.callback(CommonKey.ESCAPE, key_down=None)  # Reset keys
+        if is_active is True and KeyboardHook.callback:
+            KeyboardHook.callback(CommonKey.ESCAPE, key_down=None)  # Reset all key states keys
+
+    @staticmethod
+    def zone_loaded(is_loaded: bool):
+        # Zone is loaded
+        if KeyboardHook.is_loaded == is_loaded:
+            return
+        log.debug(f"Zone: {is_loaded}")
+        KeyboardHook.is_loaded = is_loaded
 
     # noinspection PyPep8Naming
     @staticmethod
     def _keyboard_hook_proc(nCode, wParam, lParam):
-        if KeyboardHook.is_active:
+        if KeyboardHook.is_active and KeyboardHook.is_loaded:
             if nCode == KeyboardHook.HC_ACTION:
                 if wParam in (KeyboardHook.WM_KEYDOWN, KeyboardHook.WM_SYSKEYDOWN):
                     key = cast(lParam, POINTER(KeyboardHook.KBDLLHOOKSTRUCT)).contents.vkCode
@@ -93,7 +105,7 @@ class KeyboardHook:
 
     def do_hook(self):
         # log.debug(f"KeyboardHook.hook: start ({KeyboardHook.is_active})")
-        if KeyboardHook.is_active:
+        if KeyboardHook.is_active and KeyboardHook.is_loaded and KeyboardHook.callback:
             kb_hook_proc = WINFUNCTYPE(c_int, c_int, c_int, POINTER(c_void_p))(
                 self._keyboard_hook_proc)
             if not kb_hook_proc:

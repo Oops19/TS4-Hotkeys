@@ -19,11 +19,12 @@ from o19_hotkeys.gp.gamepad_state import GamepadState
 from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 
-# from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
-# log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadThread')
-from ts4lib.utils.un_common_log import UnCommonLog
-log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadThread', custom_file_path=None)
-
+try:
+    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadThread')
+except:
+    from ts4lib.utils.un_common_log import UnCommonLog
+    log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'GamepadThread', custom_file_path=None)
 log.enable()
 
 

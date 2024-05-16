@@ -10,11 +10,13 @@ from o19_hotkeys.config.io_handler import ConfigIOHandler
 from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.singleton import Singleton
 from ts4lib.libraries.ts4folders import TS4Folders
-from ts4lib.utils.un_common_log import UnCommonLog
 
-
-mod_name = ModInfo.get_identity().name
-log: UnCommonLog = UnCommonLog(f"{ModInfo.get_identity().name}", ModInfo.get_identity().name, custom_file_path=None)
+try:
+    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'ConfigReader')
+except:
+    from ts4lib.utils.un_common_log import UnCommonLog
+    log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'ConfigReader', custom_file_path=None)
 log.enable()
 log.info(f"Starting ...")
 

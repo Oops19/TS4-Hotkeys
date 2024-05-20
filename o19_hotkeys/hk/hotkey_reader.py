@@ -20,7 +20,7 @@ from o19_hotkeys.hk.key_definition import KeyDefinition
 from sims4communitylib.enums.common_key import CommonKey
 from ts4lib.utils.singleton import Singleton
 from o19_hotkeys.modinfo import ModInfo
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'HotkeyReader')
 log.enable()

@@ -20,7 +20,7 @@ from o19_hotkeys.modinfo import ModInfo
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 
 try:
-    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
     log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadThread')
 except:
     from ts4lib.utils.un_common_log import UnCommonLog

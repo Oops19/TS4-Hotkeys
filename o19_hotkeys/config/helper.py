@@ -13,7 +13,7 @@ from ts4lib.libraries.file_utils import FileUtils
 from ts4lib.libraries.ts4folders import TS4Folders
 
 try:
-    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
     log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'ConfigHelper')
 except:
     from ts4lib.utils.un_common_log import UnCommonLog

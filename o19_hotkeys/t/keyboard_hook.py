@@ -15,7 +15,7 @@ from ts4lib.ts4l_ctypes.wintypes import MSG
 
 from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.enums.common_key import CommonKey
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'KeyboardHook')

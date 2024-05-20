@@ -21,7 +21,7 @@ from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.events.event_handling.common_event_registry import CommonEventRegistry
 from sims4communitylib.events.interval.common_interval_event_service import CommonIntervalEventRegistry
 from sims4communitylib.events.zone_spin.events.zone_late_load import S4CLZoneLateLoadEvent
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 from ts4lib.utils.singleton import Singleton
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'HotkeyExecutor')

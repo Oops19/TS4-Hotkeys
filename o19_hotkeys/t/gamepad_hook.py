@@ -20,7 +20,7 @@ from o19_hotkeys.gp.gamepad_state import GamepadState
 from o19_hotkeys.modinfo import ModInfo
 
 try:
-    from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+    from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
     log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'GamepadHook')
 except:
     from ts4lib.utils.un_common_log import UnCommonLog

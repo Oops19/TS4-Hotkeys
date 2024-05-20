@@ -17,7 +17,7 @@ from sims4communitylib.events.zone_spin.events.zone_early_load import S4CLZoneEa
 
 from sims4communitylib.events.zone_spin.events.zone_late_load import S4CLZoneLateLoadEvent
 from sims4communitylib.events.zone_spin.events.zone_teardown import S4CLZoneTeardownEvent
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'ZoneHook')
 log.enable()
@@ -37,11 +37,11 @@ class ZoneHook:
     @CommonEventRegistry.handle_events(ModInfo.get_identity())
     def handle_event_zone_load_1(event_data: S4CLZoneEarlyLoadEvent):
         if ZoneHook.callback is not None:
-            ZoneHook.callback(True)
+            ZoneHook.callback(is_loaded=True)
             FocusHook._focus_handler(None, None, None, None, None, None, None)
 
     @staticmethod
     @CommonEventRegistry.handle_events(ModInfo.get_identity())
     def handle_event_zone_unload(event_data: S4CLZoneTeardownEvent):
         if ZoneHook.callback is not None:
-            ZoneHook.callback(False)
+            ZoneHook.callback(is_loaded=False)

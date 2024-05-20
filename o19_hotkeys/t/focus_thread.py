@@ -14,7 +14,7 @@ from typing import Callable
 from o19_hotkeys.t.focus_hook import FocusHook
 
 from o19_hotkeys.modinfo import ModInfo
-from sims4communitylib.utils.common_log_registry import CommonLogRegistry, CommonLog
+from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'FocusThread')
 log.enable()

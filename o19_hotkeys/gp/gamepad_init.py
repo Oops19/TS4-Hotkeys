@@ -51,7 +51,6 @@ class GamepadInit(metaclass=Singleton):
     DEADZONE_LEFT_THUMB  (default value is 7849, max is 32767)
     DEADZONE_TRIGGER     (default value is 30,   max is 255  )"""
 
-
         if value == GamepadConstants.DEADZONE_DEFAULT:
             value = 7849 if dzone == GamepadConstants.DEADZONE_LEFT_THUMB else 8689 if dzone == GamepadConstants.DEADZONE_RIGHT_THUMB else 30
 

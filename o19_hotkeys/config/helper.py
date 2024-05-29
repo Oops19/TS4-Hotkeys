@@ -19,20 +19,24 @@ except:
     from ts4lib.utils.un_common_log import UnCommonLog
     log: UnCommonLog = UnCommonLog(ModInfo.get_identity().name, 'ConfigHelper', custom_file_path=None)
 
+
 class ConfigHelper:
     def __init__(self):
         self.ts4f = TS4Folders(ModInfo.get_identity().base_namespace)
         self.ts4fu = FileUtils(self.ts4f.ts4_folder_mods)
 
-    def get_configuration_file(self, filename: str):
+    def get_configuration_file(self, filename: str) -> str:
         return os.path.join(self.ts4f.data_folder, f"{filename}.txt")
 
-    def get_user_configuration_files(self, filename: str):
+    def get_user_configuration_files(self, filename: str) -> List[str]:
+        r'''
         files: List[str] = []
         filenames = self.ts4fu.find_files(rf'^{filename}\..*\.txt')
         for _filename in filenames:
             files.append(_filename)
         return files
+        '''
+        return self.ts4fu.find_files(rf'^{filename}\..*\.txt')
 
     def get_user_configuration_file(self, filename: str):
         author = ''

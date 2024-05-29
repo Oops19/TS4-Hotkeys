@@ -47,6 +47,7 @@ class GamepadHook:
         self.repeat_at = 0
 
         self._trace_log = trace_log
+
     @property
     def trace_log(self) -> bool:
         return self._trace_log

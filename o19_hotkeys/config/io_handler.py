@@ -13,7 +13,7 @@ from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 
-log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(),'ConfigIOHandler')
+log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'ConfigIOHandler')
 log.enable()
 
 

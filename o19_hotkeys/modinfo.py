@@ -28,10 +28,12 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.2.1'
+        return '0.2.2'
 
 
-'''
+r'''
+v0.2.2
+    Tested with TS4 v1.107
 v0.2.1
     Add check for None callback
 v0.2.0

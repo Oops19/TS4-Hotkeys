@@ -74,7 +74,6 @@ class GamepadConstants(metaclass=Singleton):
     FILTER_RELEASED_ONLY = 0x200000
     FILTER_NONE = 0xFFFFFF - FILTER_PRESSED_ONLY - FILTER_RELEASED_ONLY
 
-
     DEADZONE_DEFAULT = -1
 
     EVENT_CONNECTED = 1
@@ -88,22 +87,23 @@ class GamepadConstants(metaclass=Singleton):
     RIGHT = 1
 
     button_dict = {
-            0x0001 : "DPAD_UP",
-            0x0002 : "DPAD_DOWN",
-            0x0004 : "DPAD_LEFT",
-            0x0008 : "DPAD_RIGHT",
-            0x0010 : "START",
-            0x0020 : "BACK",
-            0x0040 : "LEFT_THUMB",
-            0x0080 : "RIGHT_THUMB",
-            0x0100 : "LEFT_SHOULDER",
-            0x0200 : "RIGHT_SHOULDER",
-            0x0400 : "GUIDE",  # n/a
-            0x1000 : "A",
-            0x2000 : "B",
-            0x4000 : "X",
-            0x8000 : "Y",
+            0x0001: "DPAD_UP",
+            0x0002: "DPAD_DOWN",
+            0x0004: "DPAD_LEFT",
+            0x0008: "DPAD_RIGHT",
+            0x0010: "START",
+            0x0020: "BACK",
+            0x0040: "LEFT_THUMB",
+            0x0080: "RIGHT_THUMB",
+            0x0100: "LEFT_SHOULDER",
+            0x0200: "RIGHT_SHOULDER",
+            0x0400: "GUIDE",  # n/a
+            0x1000: "A",
+            0x2000: "B",
+            0x4000: "X",
+            0x8000: "Y",
         }
+
 
 # defining XInput compatible structures #
 class XINPUT_GAMEPAD(Structure):
@@ -116,6 +116,7 @@ class XINPUT_GAMEPAD(Structure):
         ("sThumbRX", GamepadConstants.SHORT),
         ("sThumbRY", GamepadConstants.SHORT),
     ]
+
 
 class XINPUT_STATE(Structure):
     _fields_ = [

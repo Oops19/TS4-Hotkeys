@@ -76,7 +76,7 @@ class FocusHook:
         # noinspection PyPep8Naming
         WinEventProc = WinEventProcType(FocusHook._focus_handler)
         FocusHook.hook = windll.user32.SetWinEventHook(FocusHook.EVENT_SYSTEM_FOREGROUND, FocusHook.EVENT_SYSTEM_FOREGROUND,
-                                                0, WinEventProc, 0, 0, 0)
+                                                       0, WinEventProc, 0, 0, 0)
 
         if not FocusHook.hook:
             error_code = GetLastError()

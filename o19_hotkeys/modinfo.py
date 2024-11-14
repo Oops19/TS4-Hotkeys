@@ -28,10 +28,12 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.2.2'
+        return '0.2.3'
 
 
 r'''
+v0.2.3
+    Show 'Move' also for special situations
 v0.2.2
     Tested with TS4 v1.107
 v0.2.1

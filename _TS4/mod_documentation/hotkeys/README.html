@@ -1,0 +1,277 @@
+<h1>TS4 Hotkeys & Gamepad</h1>
+<br/>
+This mod is for Windows only and does not work on any other systems.<br/>
+<br/>
+<h2>Issues</h2>
+The hotkeys work only while a zone is loaded and the game has the focus.<br/>
+It is now disabled in CAS but still active in the build/buy menu.<br/>
+The cheat console and text input in game do lag.<br/>
+That's because the input can't be processed fast enough due to the limited Python threading capabilities.<br/>
+Get a much faster processor to fix this.<br/>
+<br/>
+The gamepad is queried in an active thread around 25 times a second.<br/>
+This adds some overhead to TS4.<br/>
+Unplug or disable the gamepad to avoid this in case you don't use it.<br/>
+<br/>
+Should be solved:<br/>
+<s>There are some issues to detect the focus properly.<br/>
+In such cases the keys will not work.<br/>
+Switch to a different window/program and back to TS4 to fix this.</s><br/>
+<br/>
+<h2>Hotkeys</h2>
+This mod allows to define custom hotkeys for the keyboard keys [A-Z0-9].<br/>
+It supports Shift, Ctrl, Alt and/or Win key modifiers.<br/>
+The mod itself doesn't come with any pre-defined hotkey bindings.<br/>
+<br/>
+<h2>Gamepad</h2>
+The mod supports using the gamepad to move sims around in case a 3rd-party mod to move objects/sims is available.<br/>
+The support to route sims to a location is very basic and may throw exceptions.<br/>
+Custom actions can't be bound to the gamepad keys, except of the paddle key which always act as normal keys.<br/>
+<ul>
+	<li>The left stick can be used to rotate the sim.</li>
+	<li>The left shoulder key activates the trigger keys to rotate the sim around the Y axis.</li>
+	<li>The right stick can be used to move the sim.</li>
+	<li>The right shoulder key activates the trigger keys to move the sim up/down (Y axis).</li>
+	<li>The DPAD can be used to send the sim into the corresponding location. This may fail and/or throw exceptions. Please do not report any exceptions thrown while using the DPAD.</li>
+	<li>The ABXY, menu and play keys are not yet used.</li>
+	<li>The game key can't be used.</li>
+</ul>
+<br/>
+<h3>Configuration</h3>
+The default configuration file is placed in <i>mod_data/hotkeys/hotkeys.txt</i> and should not be edited as it will be overridden when updating.<br/>
+To modify the default values copy it to <i>mod_data/hotkeys/hotkeys.override.txt</i> and change values in the new file.<br/>
+<h4>Enable / Disable permanently</h4>
+<ul>
+	<li>To disable the hotkeys permanently change <i>'Hotkeys': True,</i> to <i>'Hotkeys': False,`.</li>
+	<li>To disable the gamepad permanently change <i>'Gamepad': True,</i> to <i>'Gamepad': False,`.</li>
+	<li>To change the gampepad ID modify <i>'GamepadId': 0,</i> to values 1, 2 or 3.</li>
+</ul>
+<br/>
+<ul>
+	<li>Other settings should not be modified.</li>
+</ul>
+<br/>
+<h3>Cheats</h3>
+<ul>
+	<li>o19.hk.gp.id ID - Select the controller ID (0-3) to be used. Defaults to the fist controller '0'.</li>
+	<li>o19.hk.gp.verbose - Write a verbose log. This will cause some lag while using the controller.</li>
+</ul>
+<br/>
+<h2>Pie Menus</h2>
+<h3>Moving Objects</h3>
+There is a simple cheat interaction called 'Move'.<br/>
+<ul>
+	<li>Clicking on a object/(or random) sim allows to move and/or rotate the object/sim. The active sim will be ignored.</li>
+	<li>Running it on the floor allows to move the <i>active</i> sim (default) again.</li>
+</ul>
+<br/>
+<br/>
+<h1>Creation of Custom Hotkey Bindings</h1>
+Replace directory, author, mod etc. (often mention in <i>{}</i> below) with real / useful values. The values and names used when creating a new mod should never contain <i>{</i> or <i>}</i>.<br/>
+<br/>
+To add custom hotkeys to the game create a file <i>The Sims 4/mod_data/hotkeys/hotkeys.{author-name}.{mod-name}.txt</i> and add hotkey definitions to it. E.g.:<br/>
+<pre>
+{
+  'author-name.mod-name': {
+    'A': ['{directory}.{file-name}..{ClassName}.{function_name}', 'Description: A miracle happens.', ],
+    'Shift+Ctrl+Alt+Win+A': ['{directory}.{file-name}.{ClassName}.{function_name2} {all parameters}', 'Description: Another miracle happens.', ],
+  }
+}
+</pre>
+In case you start TS4 now <i>Hotkeys</i> will complain about the missing functions.<br/>
+<br/>
+Create a mod with the structure from above. It should have a file <i>{directory}/{file-name}.py</i> with the following structure:<br/>
+<pre>
+class {ClassName}:
+    @staticmethod
+    def {function_name}():
+        pass  # code for 'A miracle happens.'
+    @staticmethod
+    def {function_name2}(*args):
+        pass  # code for 'Another miracle happens.'
+</pre>
+<br/>
+Compile the file to <i>{directory}/{file-name}.pyc</i> and add it to a ZIP file with the .ts4script instead of the .zip file suffix.<br/>
+Add the <i>{mod-name}.ts4script</i> file to the mods folder.<br/>
+<br/>
+Starting TS4 will read the <i>hotkeys.{author-name}.{mod-name}.txt`, locate the methods in the mod and call it whenever one fo the keys is pressed.<br/>
+<br/>
+<br/>
+<h1>Addendum</h1>
+<br/>
+<h2>Game compatibility</h2>
+This mod has been tested with <i>The Sims 4</i> 1.111.102, S4CL 3.9, TS4Lib 0.3.33.<br/>
+It is expected to be compatible with many upcoming releases of TS4, S4CL and TS4Lib.<br/>
+<br/>
+<h2>Dependencies</h2>
+Download the ZIP file, not the sources.<br/>
+<ul>
+	<li><a href='../../releases/latest'>This Mod</a></li>
+	<li><a href='https://github.com/Oops19/TS4-Library/releases/latest'>TS4-Library</a></li>
+	<li><a href='https://github.com/ColonolNutty/Sims4CommunityLibrary/releases/latest'>S4CL</a></li>
+	<li><a href='https://www.ea.com/games/the-sims/the-sims-4'>The Sims 4</a></li>
+</ul>
+<br/>
+If not installed download and install TS4 and these mods.<br/>
+All are available for free.<br/>
+<br/>
+<h2>Installation</h2>
+<ul>
+	<li>Locate the localized <i>The Sims 4</i> folder which contains the <i>Mods</i> folder.</li>
+	<li>Extract the ZIP file into this <i>The Sims 4</i> folder.</li>
+	<li>It will create the directories/files <i>Mods/_o19_/$mod_name.ts4script`, <i>Mods/_o19_/$mod_name.package`, <i>mod_data/$mod_name/*</i> and/or <i>mod_documentation/$mod_name/*`</li>
+	<li>`mod_logs/$mod_name.txt</i> will be created as soon as data is logged.</li>
+</ul>
+<br/>
+<h3>Manual Installation</h3>
+If you don't want to extract the ZIP file into <i>The Sims 4</i> folder you might want to read this.<br/>
+<ul>
+	<li>The files in <i>ZIP-File/mod_data</i> are usually required and should be extracted to <i>The Sims 4/mod_data`.</li>
+	<li>The files in <i>ZIP-File/mod_documentation</i> are for you to read it. They are not needed to use this mod.</li>
+	<li>The <i>Mods/_o19_/*.ts4script</i> files can be stored in a random folder within <i>Mods</i> or directly in <i>Mods</i>. I highly recommend to store it in <i>_o19_</i> so you know who created it.</li>
+</ul>
+<br/>
+<h2>Usage Tracking / Privacy</h2>
+This mod does not send any data to tracking servers. The code is open source, not obfuscated, and can be reviewed.<br/>
+<br/>
+Some log entries in the log file ('mod_logs' folder) may contain the local username, especially if files are not found (WARN, ERROR).<br/>
+<br/>
+<h2>External Links</h2>
+<a href='https://github.com/Oops19/'>Sources</a><br/>
+<a href='https://discord.gg/d8X9aQ3jbm'>Support</a><br/>
+<a href='https://www.patreon.com/o19'>Donations</a><br/>
+<br/>
+<h2>Copyright and License</h2>
+<ul>
+	<li>© 2024 <a href='https://github.com/Oops19'>Oops19</a></li>
+	<li>License for '.package' files: <a href='https://tos.ea.com/legalapp/WEBTERMS/US/en/PC/'>Electronic Arts TOS for UGC</a></li>
+	<li>License for other media unless specified differently: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a> unless the Electronic Arts TOS for UGC overrides it.</li>
+</ul>
+This allows you to use this mod and re-use the code even if you don't own The Sims 4.<br/>
+Have fun extending this mod and/or integrating it with your mods.<br/>
+<br/>
+Oops19 / o19 is not endorsed by or affiliated with Electronic Arts or its licensors.<br/>
+Game content and materials copyright Electronic Arts Inc. and its licensors.<br/>
+Trademarks are the property of their respective owners.<br/>
+<br/>
+<h3>TOS</h3>
+<ul>
+	<li>Please don't put it behind a paywall.</li>
+	<li>Please don't create mods which break with every TS4 update.</li>
+	<li>For simple tuning modifications use <a href='https://github.com/Oops19/TS4-PatchXML'>Patch-XML</a></li>
+	<li>or <a href='https://github.com/Oops19/TS4-LiveXML'>LiveXML</a>.</li>
+	<li>To check the XML structure of custom tunings use <a href='https://github.com/Oops19/TS4-VanillaLogs'>VanillaLogs</a>.</li>
+</ul>
+<br/>
+<br/>
+<br/>
+<h1>Addendum</h1>
+<br/>
+<h2>Game compatibility</h2>
+This mod has been tested with <i>The Sims 4</i> 1.112.519, S4CL 3.10, TS4Lib 0.3.36.<br/>
+It is expected to be compatible with many upcoming releases of TS4, S4CL and TS4Lib.<br/>
+<br/>
+<h2>Dependencies</h2>
+Download the ZIP file, not the sources.<br/>
+<ul>
+	<li><a href='../../releases/latest'>This Mod</a></li>
+	<li><a href='https://github.com/Oops19/TS4-Library/releases/latest'>TS4-Library</a></li>
+	<li><a href='https://github.com/ColonolNutty/Sims4CommunityLibrary/releases/latest'>S4CL</a></li>
+	<li><a href='https://www.ea.com/games/the-sims/the-sims-4'>The Sims 4</a></li>
+</ul>
+<br/>
+If not installed download and install TS4 and these mods.<br/>
+All are available for free.<br/>
+<br/>
+<h2>Removal of the mod</h2>
+The mod installation with unzip writes to a few directories.<br/>
+To remove this mod and all related files locate the files and folders and remove them:<br/>
+<ul>
+	<li>`The Sims 4/Mods/_o19_/$mod_name.*`</li>
+	<li>`The Sims 4/mod_data/_o19_/$mod_name/`</li>
+	<li>`The Sims 4/mod_documentation/_o19_/$mod_name/`</li>
+	<li>`The Sims 4/mod_sources/_o19_/$mod_name/`</li>
+</ul>
+<br/>
+To remove all of my mods locate these folders and remove them:<br/>
+<ul>
+	<li>`The Sims 4/Mods/_o19_/`</li>
+	<li>`The Sims 4/mod_data/_o19_/`</li>
+	<li>`The Sims 4/mod_documentation/_o19_/`</li>
+	<li>`The Sims 4/mod_sources/_o19_/`</li>
+</ul>
+<br/>
+<h2>Installation</h2>
+<ul>
+	<li>Locate the localized <i>The Sims 4</i> folder which contains the <i>Mods</i> folder.</li>
+	<li>Extract the ZIP file into this <i>The Sims 4</i> folder.</li>
+	<li>It will create the directories/files <i>Mods/_o19_/$mod_name.ts4script`, <i>Mods/_o19_/$mod_name.package`, <i>mod_data/$mod_name/*</i> and/or <i>mod_documentation/$mod_name/*</i> and/or <i>mod_sources/$mod_name/*`</li>
+	<li>CAS and build-buy UGC without scripts will create <i>Mods/o19/$mod_name.package`.</li>
+	<li>`mod_logs/$mod_name.txt</i> will be created as soon as data is logged.</li>
+	<li>`mod_documentation/$mod_name/</i> and/or <i>mod_sources/$mod_name/</i> are not required and can be deleted.</li>
+</ul>
+<br/>
+<h3>Manual Installation</h3>
+If you don't want to extract the ZIP file into <i>The Sims 4</i> folder you might want to read this.<br/>
+You can extract the ZIP file to a temporary directory and copy the folders manually.<br/>
+<ul>
+	<li>The files in <i>ZIP-File/mod_data</i> are usually required and should be extracted to <i>The Sims 4/mod_data`.</li>
+	<li>The files in <i>ZIP-File/mod_documentation</i> are for you to read it. They are not needed to use this mod.</li>
+	<li>The files in <i>ZIP-File/mod_sources</i> are not needed to use this mod.</li>
+	<li>The <i>Mods/_o19_/*.ts4script</i> files can be stored in a random folder within <i>Mods</i> or directly in <i>Mods</i>. I highly recommend to store it in <i>_o19_</i> so you know who created it.</li>
+</ul>
+<br/>
+<h2>Troubleshooting</h2>
+When installed properly this is not necessary at all.<br/>
+For manual installations check these things and make sure each question can be answered with 'yes'.<br/>
+<ul>
+	<li>Does 'The Sims 4' (localized to Die Sims 4, Les Sims 4, Los Sims 4, The Sims 4, ...) exist?</li>
+	<li>Does <i>The Sims 4</i> contain the folder <i>Mods`?</li>
+	<li>Does <i>Mods</i> contain the folder <i>_o19_`?</li>
+	<li>Does <i>_19_</i> contain <i>ts4lib.ts4script</i> and <i>ts4lib.package</i> files?</li>
+	<li>Does <i>_19_</i> contain <i>{mod_name}.ts4script</i> and/or <i>{mod_name}.package</i> files?</li>
+	<li>Does <i>The Sims 4</i> contain the folder <i>mod_data`?</li>
+	<li>Does <i>mod_data</i> contain the folder <i>{mod_name}`?</li>
+	<li>Does <i>{mod_name}</i> contain files or folders?</li>
+	<li>Does <i>The Sims 4</i> contain the <i>mod_logs</i> ?</li>
+	<li>Does <i>mod_logs</i> contain the file <i>Sims4CommunityLib_*_Messages.txt`?</li>
+	<li>Does <i>mod_logs</i> contain the file <i>TS4-Library_*_Messages.txt`?</li>
+	<li>Is this the most recent version or can it be updated?</li>
+	<li>Does <i>mod_logs</i> contain the file <i>{mod_name}_*_Messages.txt`?</li>
+	<li>Is this the most recent version or can it be updated?</li>
+	<li>Doesn't <i>The Sims 4</i> contain the file(s) <i>last_exception.txt</i>  and/or <i>last_exception*.txt</i> ?</li>
+	<li>Share the <i>The Sims 4/mod_logs/Sims4CommunityLib_*_Messages.txt</i> and <i>The Sims 4/mod_logs/{mod_name}_*_Messages.txt</i>  file.</li>
+</ul>
+<br/>
+<h2>Usage Tracking / Privacy</h2>
+This mod does not send any data to tracking servers. The code is open source, not obfuscated, and can be reviewed.<br/>
+<br/>
+Some log entries in the log file ('mod_logs' folder) may contain the local username, especially if files are not found (WARN, ERROR).<br/>
+<br/>
+<h2>External Links</h2>
+<a href='https://github.com/Oops19/'>Sources</a><br/>
+<a href='https://discord.gg/d8X9aQ3jbm'>Support</a><br/>
+<a href='https://www.patreon.com/o19'>Donations</a><br/>
+<br/>
+<h2>Copyright and License</h2>
+<ul>
+	<li>© 2020-2025 <a href='https://github.com/Oops19'>Oops19</a></li>
+	<li>License for '.package' files: <a href='https://tos.ea.com/legalapp/WEBTERMS/US/en/PC/'>Electronic Arts TOS for UGC</a></li>
+	<li>License for other media unless specified differently: <a href='https://creativecommons.org/licenses/by/4.0/'>CC BY 4.0</a> unless the Electronic Arts TOS for UGC overrides it.</li>
+</ul>
+This allows you to use this mod and re-use the code even if you don't own The Sims 4.<br/>
+Have fun extending this mod and/or integrating it with your mods.<br/>
+<br/>
+Oops19 / o19 is not endorsed by or affiliated with Electronic Arts or its licensors.<br/>
+Game content and materials copyright Electronic Arts Inc. and its licensors.<br/>
+Trademarks are the property of their respective owners.<br/>
+<br/>
+<h3>TOS</h3>
+<ul>
+	<li>Please don't put it behind a paywall.</li>
+	<li>Please don't create mods which break with every TS4 update.</li>
+	<li>For simple tuning modifications use <a href='https://github.com/Oops19/TS4-PatchXML'>Patch-XML</a></li>
+	<li>or <a href='https://github.com/Oops19/TS4-LiveXML'>LiveXML</a>.</li>
+	<li>To check the XML structure of custom tunings use <a href='https://github.com/Oops19/TS4-VanillaLogs'>VanillaLogs</a>.</li>
+</ul>
+<br/>

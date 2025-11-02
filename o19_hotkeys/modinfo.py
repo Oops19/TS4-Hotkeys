@@ -28,10 +28,12 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.2.3'
+        return '0.2.4'
 
 
 r'''
+v0.2.4
+    Prevent loading the mod on Mac
 v0.2.3
     Show 'Move' also for special situations
 v0.2.2

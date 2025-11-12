@@ -1,5 +1,5 @@
-Hotkeys v0.2.4 for The Sims 4 v1.119.109 and S4CL v3.15
-Created on 2025-11-09
+Hotkeys v0.2.4 for The Sims 4 v1.119.109 and S4CL v3.17
+Created on 2025-11-12
 v0.2.4
     Prevent loading the mod on Mac
 

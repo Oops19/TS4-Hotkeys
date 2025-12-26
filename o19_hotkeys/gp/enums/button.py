@@ -4,10 +4,10 @@
 #
 
 
-from ts4lib.common_enums.enum_types.common_enum import CommonEnum
+from ts4lib.custom_enums.enum_types.custom_enum import CustomEnum
 
 
-class Button(CommonEnum):
+class Button(CustomEnum):
     BUTTON_DPAD_UP = 0x000001
     BUTTON_DPAD_DOWN = 0x000002
     BUTTON_DPAD_LEFT = 0x000004

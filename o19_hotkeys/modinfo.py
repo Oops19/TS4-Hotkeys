@@ -28,10 +28,14 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '0.2.4'
+        return '1.0.0'
 
 
 r'''
+v1.0.0
+    Fix compatibility with TS4Lib 1.0.0
+v0.2.5
+    Adjust ctype import path
 v0.2.4
     Prevent loading the mod on Mac
 v0.2.3

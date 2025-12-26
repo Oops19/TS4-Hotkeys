@@ -4,14 +4,14 @@
 #
 
 
-from ts4lib.common_enums.enum_types.common_enum import CommonEnum
+from ts4lib.custom_enums.enum_types.custom_enum import CustomEnum
 
 
-class BatteryDevType(CommonEnum):
+class BatteryDevType(CustomEnum):
     BATTERY_DEVTYPE_GAMEPAD = 0x00
 
 
-class BatteryType(CommonEnum):
+class BatteryType(CustomEnum):
     BATTERY_TYPE_DISCONNECTED = 0x00
     BATTERY_TYPE_WIRED = 0x01
     BATTERY_TYPE_ALKALINE = 0x02
@@ -19,7 +19,7 @@ class BatteryType(CommonEnum):
     BATTERY_TYPE_UNKNOWN = 0xFF
 
 
-class BatteryLevel(CommonEnum):
+class BatteryLevel(CustomEnum):
     BATTERY_LEVEL_EMPTY = 0x00
     BATTERY_LEVEL_LOW = 0x01
     BATTERY_LEVEL_MEDIUM = 0x02

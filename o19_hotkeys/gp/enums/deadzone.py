@@ -4,10 +4,10 @@
 #
 
 
-from ts4lib.common_enums.enum_types.common_enum import CommonEnum
+from ts4lib.custom_enums.enum_types.custom_enum import CustomEnum
 
 
-class Deadzone(CommonEnum):
+class Deadzone(CustomEnum):
     DEADZONE_DEFAULT = 2 ** 4 - 1
 
     DEADZONE_LEFT_THUMB = 2 ** 0

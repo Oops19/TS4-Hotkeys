@@ -5,7 +5,7 @@
 
 
 from ts4lib.utils.singleton import Singleton
-from ts4lib.ts4l_ctypes import c_ushort, c_ubyte, c_ulong, c_short, c_uint, Structure
+from ts4l_ctypes import c_ushort, c_ubyte, c_ulong, c_short, c_uint, Structure
 
 
 class GamepadConstants(metaclass=Singleton):

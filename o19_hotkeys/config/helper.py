@@ -29,13 +29,13 @@ class ConfigHelper:
         return os.path.join(self.ts4f.data_folder, f"{filename}.txt")
 
     def get_user_configuration_files(self, filename: str) -> List[str]:
-        r'''
+        r"""
         files: List[str] = []
         filenames = self.ts4fu.find_files(rf'^{filename}\..*\.txt')
         for _filename in filenames:
             files.append(_filename)
         return files
-        '''
+        """
         return self.ts4fu.find_files(rf'^{filename}\..*\.txt')
 
     def get_user_configuration_file(self, filename: str):

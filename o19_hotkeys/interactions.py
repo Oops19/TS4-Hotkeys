@@ -22,7 +22,7 @@ from sims4communitylib.classes.testing.common_test_result import CommonTestResul
 from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 
-log: CommonLog = CommonLogRegistry().get().register_log(ModInfo.get_identity(), 'InteractionsHotkeys')
+log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'InteractionsHotkeys')
 log.enable()
 
 

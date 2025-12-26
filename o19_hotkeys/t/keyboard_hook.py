@@ -10,8 +10,8 @@
 
 from typing import Callable
 
-from ts4lib.ts4l_ctypes import byref, c_uint32, c_ulong, cast, windll, WINFUNCTYPE, c_int, c_void_p, Structure, POINTER, GetLastError
-from ts4lib.ts4l_ctypes.wintypes import MSG
+from ts4l_ctypes import byref, c_uint32, c_ulong, cast, windll, WINFUNCTYPE, c_int, c_void_p, Structure, POINTER, GetLastError
+from ts4l_ctypes.wintypes import MSG
 
 from o19_hotkeys.modinfo import ModInfo
 from sims4communitylib.enums.common_key import CommonKey

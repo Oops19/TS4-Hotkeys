@@ -8,7 +8,7 @@ from o19_hotkeys.gp.enums.gamepad_constants import GamepadConstants, XINPUT_STAT
 from ts4lib.utils.simple_ui_notification import SimpleUINotification
 from ts4lib.utils.singleton import Singleton
 
-from ts4lib.ts4l_ctypes import util, byref, POINTER, WinDLL
+from ts4l_ctypes import util, byref, POINTER, WinDLL
 
 
 class GamepadInit(metaclass=Singleton):
@@ -55,28 +55,28 @@ class GamepadInit(metaclass=Singleton):
             value = 7849 if dzone == GamepadConstants.DEADZONE_LEFT_THUMB else 8689 if dzone == GamepadConstants.DEADZONE_RIGHT_THUMB else 30
 
         if dzone == GamepadConstants.DEADZONE_LEFT_THUMB:
-            assert value >= 0 and value <= 32767
+            assert 0 <= value <= 32767
             if value == GamepadConstants.DEADZONE_DEFAULT:
                 GamepadConstants.XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = 7849
             else:
                 GamepadConstants.XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = value
 
         elif dzone == GamepadConstants.DEADZONE_RIGHT_THUMB:
-            assert value >= 0 and value <= 32767
+            assert 0 <= value <= 32767
             if value == GamepadConstants.DEADZONE_DEFAULT:
                 GamepadConstants.XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE = 8689
             else:
                 GamepadConstants.XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE = value
 
         elif dzone == GamepadConstants.DEADZONE_LEFT_THUMB:
-            assert value >= 0 and value <= 32767
+            assert 0 <= value <= 32767
             if value == GamepadConstants.DEADZONE_DEFAULT:
                 GamepadConstants.XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = 8689
             else:
                 GamepadConstants.XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = value
 
         else:
-            assert value >= 0 and value <= 255
+            assert 0 <= value <= 255
             if value == GamepadConstants.DEADZONE_DEFAULT:
                 GamepadConstants.XINPUT_GAMEPAD_TRIGGER_THRESHOLD = 30
             else:

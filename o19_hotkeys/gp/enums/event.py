@@ -4,10 +4,10 @@
 #
 
 
-from ts4lib.common_enums.enum_types.common_enum import CommonEnum
+from ts4lib.custom_enums.enum_types.custom_enum import CustomEnum
 
 
-class Event(CommonEnum):
+class Event(CustomEnum):
     EVENT_CONNECTED = 1
     EVENT_DISCONNECTED = 2
     EVENT_BUTTON_PRESSED = 3

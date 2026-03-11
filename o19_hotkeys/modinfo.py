@@ -28,10 +28,14 @@ class ModInfo(CommonModInfo):
 
     @property
     def _version(self) -> str:
-        return '1.0.0'
+        return '1.0.1'
 
 
 r'''
+v1.0.1
+    Added, but not activated, the options to
+    * Change keyboard thread priority to THREAD_PRIORITY_HIGHEST
+    * Change GIL max. thread time to 0.0025 seconds
 v1.0.0
     Fix compatibility with TS4Lib 1.0.0
 v0.2.5

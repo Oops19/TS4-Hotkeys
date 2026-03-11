@@ -1,5 +1,6 @@
-Hotkeys v1.0.0 for The Sims 4 v1.121.342 and S4CL v3.17
-Created on 2026-02-04
-v1.0.0
-    Fix compatibility with TS4Lib 1.0.0
+Hotkeys v1.0.1 for The Sims 4 v1.121.372 and S4CL v3.20
+Created on 2026-03-10
+v1.0.1
+    Change keyboard thread priority to THREAD_PRIORITY_HIGHEST
+    Change max. thread time to 0.0025 seconds
 

@@ -15,6 +15,7 @@ from typing import Callable
 from o19_hotkeys.t.keyboard_hook import KeyboardHook
 
 from o19_hotkeys.modinfo import ModInfo
+# from o19_hotkeys.t.keyboard_priority import KeyboardPriority
 from sims4communitylib.utils.common_log_registry import CommonLog, CommonLogRegistry
 
 log: CommonLog = CommonLogRegistry.get().register_log(ModInfo.get_identity(), 'KeyboardThread')
@@ -25,6 +26,7 @@ class KeyboardThread:
 
     def __init__(self, callback: Callable):
         log.debug(f"KeyboardThread({callback})")
+        # KeyboardPriority.set_priority(KeyboardPriority.THREAD_PRIORITY_HIGHEST)
         self.keyboard_hook = KeyboardHook(callback)
         self._stop = False
 
